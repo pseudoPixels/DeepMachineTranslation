@@ -1,4 +1,4 @@
-
+from pickle import dump
 
 class FileIoUtils:
 
@@ -14,4 +14,13 @@ class FileIoUtils:
         # close the file
         file.close()
         return text
+
+
+    # save a list of clean sentences to file
+    def pickle_dump_data(self, sentences, filename):
+        dump(sentences, open(filename, 'wb'))
+        print('Saved: %s' % filename)
+
+
+
 
