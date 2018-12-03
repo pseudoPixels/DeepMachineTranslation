@@ -1,8 +1,8 @@
-<<<<<<< HEAD
-from pickle import dump
-=======
 
->>>>>>> e2a77a6fd5406f5f6490567513540f767d68764c
+from pickle import dump
+
+
+
 
 class FileIoUtils:
 
@@ -19,7 +19,7 @@ class FileIoUtils:
         file.close()
         return text
 
-<<<<<<< HEAD
+
 
     # save a list of clean sentences to file
     def pickle_dump_data(self, sentences, filename):
@@ -29,5 +29,4 @@ class FileIoUtils:
 
 
 
-=======
->>>>>>> e2a77a6fd5406f5f6490567513540f767d68764c
+

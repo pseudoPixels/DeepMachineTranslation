@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import string
 import re
 from pickle import dump
@@ -7,8 +7,7 @@ from unicodedata import normalize
 import numpy as np
 
 
-=======
->>>>>>> e2a77a6fd5406f5f6490567513540f767d68764c
+
 class DataPreprocessingUtils:
 
     def __init__(self):
@@ -20,7 +19,7 @@ class DataPreprocessingUtils:
         pairs = [line.split('\t') for line in lines]
         return pairs
 
-<<<<<<< HEAD
+
 
 
     # clean a list of lines
@@ -79,5 +78,4 @@ class DataPreprocessingUtils:
                 clean_pair.append(' '.join(line))
             cleaned.append(clean_pair)
         return np.array(cleaned)
-=======
->>>>>>> e2a77a6fd5406f5f6490567513540f767d68764c
+
