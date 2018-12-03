@@ -5,7 +5,10 @@ __pycache__/
 
 # C extensions
 *.so
+<<<<<<< HEAD
 *.pkl
+=======
+>>>>>>> e2a77a6fd5406f5f6490567513540f767d68764c
 
 # Distribution / packaging
 .Python

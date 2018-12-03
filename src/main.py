@@ -1,6 +1,7 @@
 
 from src.FileIoUtils import *
 from src.DataPreprocessingUtils import *
+<<<<<<< HEAD
 
 
 
@@ -39,3 +40,30 @@ dataset_clean = obj_dataPrepUtils.clean_pairs(dataset_toPairs)
 #print(dataset_clean)
 
 
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+#instantiating the required objects.
+obj_fileIO = FileIoUtils()
+obj_dataPrepUtils = DataPreprocessingUtils()
+
+
+
+dataset = obj_fileIO.load_doc("../Datasets/deu-eng/deu.txt")
+dataset_toParis = obj_dataPrepUtils.to_pairs(dataset)
+
+
+
+
+print(dataset_toParis[0])
+>>>>>>> e2a77a6fd5406f5f6490567513540f767d68764c
