@@ -20,8 +20,6 @@ class DataPreprocessingUtils:
         return pairs
 
 
-
-
     # clean a list of lines
     def clean_pairs(self, lines):
         cleaned = list()
@@ -79,3 +77,17 @@ class DataPreprocessingUtils:
             cleaned.append(clean_pair)
         return np.array(cleaned)
 
+
+
+    def train_test_split(self, dataset, splitRatio):
+        numSamples = len(dataset)
+        numTrainDataset = int(numSamples*splitRatio)
+
+        #print(numTrainDataset)
+
+        np.random.shuffle(dataset)
+
+        #print(dataset)
+
+
+        return dataset[:numTrainDataset], dataset[numTrainDataset:]

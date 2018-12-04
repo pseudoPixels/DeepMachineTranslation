@@ -1,5 +1,7 @@
 
+from pickle import load
 from pickle import dump
+
 
 
 
@@ -25,6 +27,11 @@ class FileIoUtils:
     def pickle_dump_data(self, sentences, filename):
         dump(sentences, open(filename, 'wb'))
         print('Saved: %s' % filename)
+
+
+    # load a clean dataset
+    def load_pickle_dump_dataset(self, filename):
+        return load(open(filename, 'rb'))
 
 
 
