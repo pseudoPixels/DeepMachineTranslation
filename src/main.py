@@ -1,6 +1,7 @@
 
 from src.FileIoUtils import *
 from src.DataPreprocessingUtils import *
+from src.DeepLearner import *
 
 
 
@@ -17,6 +18,7 @@ from src.DataPreprocessingUtils import *
 #instantiating the required objects.
 obj_fileIO = FileIoUtils()
 obj_dataPrepUtils = DataPreprocessingUtils()
+obj_deepLearner = DeepLearner()
 
 
 #load dataset...
@@ -50,6 +52,18 @@ obj_dataPrepUtils = DataPreprocessingUtils()
 
 ##obj_fileIO.pickle_dump_data(trainDataset, '../Datasets/deu-eng/english-german-train.pkl')
 ##obj_fileIO.pickle_dump_data(testDataset, '../Datasets/deu-eng/english-german-test.pkl')
+
+
+
+
+
+
+main_dataset = obj_fileIO.load_pickle_dump_dataset('../Datasets/deu-eng/english-german.pkl')
+train_dataset = obj_fileIO.load_pickle_dump_dataset('../Datasets/deu-eng/english-german-train.pkl')
+test_dataset = obj_fileIO.load_pickle_dump_dataset('../Datasets/deu-eng/english-german-test.pkl')
+
+
+
 
 
 
