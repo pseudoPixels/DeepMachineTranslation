@@ -1,7 +1,7 @@
 
 from pickle import load
 from pickle import dump
-
+from keras.models import load_model
 
 
 
@@ -34,6 +34,7 @@ class FileIoUtils:
         return load(open(filename, 'rb'))
 
 
-
+    def load_model(self, fileName):
+        return load_model(fileName)
 
 

@@ -24,34 +24,34 @@ obj_deepLearner = DeepLearner()
 #load dataset...
 #======>>> Bengali 2 English: "../Datasets/ben-eng/ben.txt"
 #======>>> German 2 English: "../Datasets/deu-eng/deu.txt"
-##dataset = obj_fileIO.load_doc("../Datasets/deu-eng/deu.txt")
+dataset = obj_fileIO.load_doc("../Datasets/deu-eng/deu.txt")
 
 
 
 #transform the dataset in pairs...
-##dataset_toPairs = obj_dataPrepUtils.to_pairs(dataset)
+dataset_toPairs = obj_dataPrepUtils.to_pairs(dataset)
 
 
 #clean the datasets (removing punctuations, non-printable and so on)
-##dataset_clean = obj_dataPrepUtils.clean_pairs(dataset_toPairs)
+dataset_clean = obj_dataPrepUtils.clean_pairs(dataset_toPairs)
 
 #pickle save the cleaned dataset
-#obj_fileIO.pickle_dump_data(dataset_clean, '../Datasets/deu-eng/english-german.pkl')
+obj_fileIO.pickle_dump_data(dataset_clean, '../Datasets/deu-eng/english-german.pkl')
 
 
 #load pickle dumped dataset
-#raw_dataset = obj_fileIO.load_pickle_dump_dataset('../Datasets/deu-eng/english-german.pkl')
+raw_dataset = obj_fileIO.load_pickle_dump_dataset('../Datasets/deu-eng/english-german.pkl')
 
 
 # reduce dataset size
-##n_sentences = 100
+n_sentences = 1000
 
 
 
-##trainDataset, testDataset = obj_dataPrepUtils.train_test_split(raw_dataset[:n_sentences, :], 0.9)
+trainDataset, testDataset = obj_dataPrepUtils.train_test_split(raw_dataset[:n_sentences, :], 0.9)
 
-##obj_fileIO.pickle_dump_data(trainDataset, '../Datasets/deu-eng/english-german-train.pkl')
-##obj_fileIO.pickle_dump_data(testDataset, '../Datasets/deu-eng/english-german-test.pkl')
+obj_fileIO.pickle_dump_data(trainDataset, '../Datasets/deu-eng/english-german-train.pkl')
+obj_fileIO.pickle_dump_data(testDataset, '../Datasets/deu-eng/english-german-test.pkl')
 
 
 
@@ -94,7 +94,8 @@ testY = obj_dataPrepUtils.encode_output(testY, eng_vocab_size)
 
 
 
-# define model
+
+# # define model
 model = obj_deepLearner.define_model(ger_vocab_size, eng_vocab_size, ger_length, eng_length, 256)
 model.compile(optimizer='adam', loss='categorical_crossentropy')
 # summarize defined model
@@ -104,5 +105,16 @@ print(model.summary())
 filename = 'model.h5'
 checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=1, save_best_only=True, mode='min')
 model.fit(trainX, trainY, epochs=30, batch_size=64, validation_data=(testX, testY), callbacks=[checkpoint], verbose=2)
+
+
+
+
+
+
+
+# load model
+model = obj_fileIO.load_model('model.h5')
+
+obj_deepLearner.evaluate_model(model, eng_tokenizer, trainX, main_dataset)
 
 
