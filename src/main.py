@@ -84,16 +84,25 @@ print('German Max Length: %d' % (ger_length))
 
 # prepare training data
 trainX = obj_dataPrepUtils.encode_sequences(ger_tokenizer, ger_length, train_dataset[:, 1])
-trainY2 = obj_dataPrepUtils.encode_sequences(eng_tokenizer, eng_length, train_dataset[:, 0])
-trainY = obj_dataPrepUtils.encode_output(trainY2, eng_vocab_size)
+trainY = obj_dataPrepUtils.encode_sequences(eng_tokenizer, eng_length, train_dataset[:, 0])
+trainY = obj_dataPrepUtils.encode_output(trainY, eng_vocab_size)
 # prepare validation data
 testX = obj_dataPrepUtils.encode_sequences(ger_tokenizer, ger_length, test_dataset[:, 1])
 testY = obj_dataPrepUtils.encode_sequences(eng_tokenizer, eng_length, test_dataset[:, 0])
 testY = obj_dataPrepUtils.encode_output(testY, eng_vocab_size)
 
-print(eng_tokenizer.word_index)
-print(trainY2[0])
-print(trainY[0])
 
+
+
+# define model
+model = obj_deepLearner.define_model(ger_vocab_size, eng_vocab_size, ger_length, eng_length, 256)
+model.compile(optimizer='adam', loss='categorical_crossentropy')
+# summarize defined model
+print(model.summary())
+#plot_model(model, to_file='model.png', show_shapes=True)
+# fit model
+filename = 'model.h5'
+checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=1, save_best_only=True, mode='min')
+model.fit(trainX, trainY, epochs=30, batch_size=64, validation_data=(testX, testY), callbacks=[checkpoint], verbose=2)
 
 
