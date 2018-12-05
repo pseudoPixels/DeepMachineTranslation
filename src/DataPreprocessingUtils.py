@@ -7,6 +7,21 @@ from unicodedata import normalize
 import numpy as np
 
 
+from pickle import load
+from numpy import array
+from keras.preprocessing.text import Tokenizer
+from keras.preprocessing.sequence import pad_sequences
+from keras.utils import to_categorical
+from keras.utils.vis_utils import plot_model
+from keras.models import Sequential
+from keras.layers import LSTM
+from keras.layers import Dense
+from keras.layers import Embedding
+from keras.layers import RepeatVector
+from keras.layers import TimeDistributed
+from keras.callbacks import ModelCheckpoint
+
+
 
 class DataPreprocessingUtils:
 
@@ -91,3 +106,39 @@ class DataPreprocessingUtils:
 
 
         return dataset[:numTrainDataset], dataset[numTrainDataset:]
+
+
+
+
+
+    # fit a tokenizer
+    def create_tokenizer(self, lines):
+        tokenizer = Tokenizer()
+        tokenizer.fit_on_texts(lines)
+        return tokenizer
+
+
+    # max sentence length
+    def max_length(self, lines):
+        return max(len(line.split()) for line in lines)
+
+
+
+    # encode and pad sequences
+    def encode_sequences(self, tokenizer, length, lines):
+        # integer encode sequences
+        X = tokenizer.texts_to_sequences(lines)
+        # pad sequences with 0 values
+        X = pad_sequences(X, maxlen=length, padding='post')
+        return X
+
+
+    # one hot encode target sequence
+    def encode_output(self, sequences, vocab_size):
+        ylist = list()
+        for sequence in sequences:
+            encoded = to_categorical(sequence, num_classes=vocab_size)
+            ylist.append(encoded)
+        y = array(ylist)
+        y = y.reshape(sequences.shape[0], sequences.shape[1], vocab_size)
+        return y

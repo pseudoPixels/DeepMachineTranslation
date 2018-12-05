@@ -19,14 +19,6 @@ class DeepLearner:
         pass
 
 
-    # fit a tokenizer
-    def create_tokenizer(self, lines):
-        tokenizer = Tokenizer()
-        tokenizer.fit_on_texts(lines)
-        return tokenizer
-
-
-
 
 
 
