@@ -8,7 +8,11 @@
 DeepTranslation is a Deep Learning based project for automatic machine translation. 
 
 ## Installation
-`git clone `
+```
+$ git clone https://github.com/pseudoPixels/DeepTranslation.git
+$ cd DeepTranslation
+$ pip install -r requirements
+```
 
 
 ## German To English Translation
