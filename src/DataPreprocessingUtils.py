@@ -77,6 +77,8 @@ class DataPreprocessingUtils:
                 # normalize unicode characters
                 #line = normalize('NFD', line).encode('ascii', 'ignore')
                 #line = line.decode('UTF-8')
+
+                line = line.encode().decode()
                 # tokenize on white space
                 line = line.split()
                 # convert to lowercase

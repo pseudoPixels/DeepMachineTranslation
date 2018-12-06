@@ -44,7 +44,7 @@ raw_dataset = obj_fileIO.load_pickle_dump_dataset('../Datasets/ben-eng/english-b
 
 
 # reduce dataset size
-n_sentences = 1000
+n_sentences = 4400
 
 
 
