@@ -1,8 +1,8 @@
 # DeepTranslation
-[![Sponsors on Open Collective](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](#sponsors)
-[![Sponsors on Open Collective](https://img.shields.io/badge/Python-3.5-blue.svg?style=flat-square)](#sponsors)
 [![Sponsors on Open Collective](https://img.shields.io/badge/DeepLearning-TensorFlow-orange.svg?style=flat-square)](#sponsors)
 [![Sponsors on Open Collective](https://img.shields.io/badge/DeepLearning-Keras-brightgreen.svg?style=flat-square)](#sponsors)
+[![Sponsors on Open Collective](https://img.shields.io/badge/Python-3.5-blue.svg?style=flat-square)](#sponsors)
+[![Sponsors on Open Collective](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](#sponsors)
 
 Deep learning based machine translation.
 
