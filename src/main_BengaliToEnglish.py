@@ -21,50 +21,50 @@ obj_dataPrepUtils = DataPreprocessingUtils()
 obj_deepLearner = DeepLearner()
 
 
-#load dataset...
-#======>>> Bengali 2 English: "../Datasets/ben-eng/ben.txt"
-#======>>> German 2 English: "../Datasets/deu-eng/deu.txt"
-##dataset = obj_fileIO.load_doc("../Datasets/deu-eng/deu.txt")
+# #load dataset...
+# #======>>> Bengali 2 English: "../Datasets/ben-eng/ben.txt"
+# #======>>> German 2 English: "../Datasets/deu-eng/deu.txt"
+dataset = obj_fileIO.load_doc("../Datasets/ben-eng/ben.txt")
 
 
 
 #transform the dataset in pairs...
-##dataset_toPairs = obj_dataPrepUtils.to_pairs(dataset)
+dataset_toPairs = obj_dataPrepUtils.to_pairs(dataset)
 
 
 #clean the datasets (removing punctuations, non-printable and so on)
-##dataset_clean = obj_dataPrepUtils.clean_pairs(dataset_toPairs)
+dataset_clean = obj_dataPrepUtils.clean_pairs_ben(dataset_toPairs)
 
 #pickle save the cleaned dataset
-#obj_fileIO.pickle_dump_data(dataset_clean, '../Datasets/deu-eng/english-german.pkl')
+obj_fileIO.pickle_dump_data(dataset_clean, '../Datasets/ben-eng/english-bengali.pkl')
 
 
 #load pickle dumped dataset
-#raw_dataset = obj_fileIO.load_pickle_dump_dataset('../Datasets/deu-eng/english-german.pkl')
+raw_dataset = obj_fileIO.load_pickle_dump_dataset('../Datasets/ben-eng/english-bengali.pkl')
 
 
 # reduce dataset size
-##n_sentences = 100
+n_sentences = 1000
 
 
 
-##trainDataset, testDataset = obj_dataPrepUtils.train_test_split(raw_dataset[:n_sentences, :], 0.9)
+trainDataset, testDataset = obj_dataPrepUtils.train_test_split(raw_dataset[:n_sentences, :], 0.9)
 
-##obj_fileIO.pickle_dump_data(trainDataset, '../Datasets/deu-eng/english-german-train.pkl')
-##obj_fileIO.pickle_dump_data(testDataset, '../Datasets/deu-eng/english-german-test.pkl')
+obj_fileIO.pickle_dump_data(trainDataset, '../Datasets/ben-eng/english-bengali-train.pkl')
+obj_fileIO.pickle_dump_data(testDataset, '../Datasets/ben-eng/english-bengali-test.pkl')
 
+#
+#
+#
+#
 
+main_dataset = obj_fileIO.load_pickle_dump_dataset('../Datasets/ben-eng/english-bengali.pkl')
+train_dataset = obj_fileIO.load_pickle_dump_dataset('../Datasets/ben-eng/english-bengali-train.pkl')
+test_dataset = obj_fileIO.load_pickle_dump_dataset('../Datasets/ben-eng/english-bengali-test.pkl')
 
-
-
-
-main_dataset = obj_fileIO.load_pickle_dump_dataset('../Datasets/deu-eng/english-german.pkl')
-train_dataset = obj_fileIO.load_pickle_dump_dataset('../Datasets/deu-eng/english-german-train.pkl')
-test_dataset = obj_fileIO.load_pickle_dump_dataset('../Datasets/deu-eng/english-german-test.pkl')
-
-
-
-
+#
+#
+#
 # prepare english tokenizer
 eng_tokenizer = obj_dataPrepUtils.create_tokenizer(main_dataset[:, 0])
 eng_vocab_size = len(eng_tokenizer.word_index) + 1
@@ -77,8 +77,11 @@ print('English Max Length: %d' % (eng_length))
 ger_tokenizer = obj_dataPrepUtils.create_tokenizer(main_dataset[:, 1])
 ger_vocab_size = len(ger_tokenizer.word_index) + 1
 ger_length = obj_dataPrepUtils.max_length(main_dataset[:, 1])
-print('German Vocabulary Size: %d' % ger_vocab_size)
-print('German Max Length: %d' % (ger_length))
+print('Bengali Vocabulary Size: %d' % ger_vocab_size)
+print('Bengali Max Length: %d' % (ger_length))
+
+
+
 
 
 
@@ -94,15 +97,30 @@ testY = obj_dataPrepUtils.encode_output(testY, eng_vocab_size)
 
 
 
-# define model
+#
+#
+#
+
+# # define model
 model = obj_deepLearner.define_model(ger_vocab_size, eng_vocab_size, ger_length, eng_length, 256)
 model.compile(optimizer='adam', loss='categorical_crossentropy')
 # summarize defined model
 print(model.summary())
 #plot_model(model, to_file='model.png', show_shapes=True)
 # fit model
-filename = 'model.h5'
+filename = 'model_bengali.h5'
 checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=1, save_best_only=True, mode='min')
 model.fit(trainX, trainY, epochs=30, batch_size=64, validation_data=(testX, testY), callbacks=[checkpoint], verbose=2)
+
+
+
+
+
+
+
+# load model
+model = obj_fileIO.load_model('model_bengali.h5')
+
+obj_deepLearner.evaluate_model(model, eng_tokenizer, trainX, train_dataset)
 
 
