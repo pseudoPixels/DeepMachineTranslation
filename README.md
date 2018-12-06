@@ -11,7 +11,7 @@ DeepTranslation is a Deep Learning based project for automatic machine translati
 ```
 $ git clone https://github.com/pseudoPixels/DeepTranslation.git
 $ cd DeepTranslation
-$ pip install -r requirements
+$ pip install -r requirements.txt
 ```
 
 
