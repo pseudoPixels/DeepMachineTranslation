@@ -17,5 +17,5 @@ Sample automatic translation result (trained on 50,000 sentence pairs):
 ## Bengali To English Translation
 Sample automatic translation result (trained on 4,400 sentence pairs):
 <p align="center">
-  <img src="docs/images/engBen.png" width="100%" title="DeepTranslation">
+  <img src="docs/images/gerEng.png" width="100%" title="DeepTranslation">
 </p>
