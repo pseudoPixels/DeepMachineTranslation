@@ -9,5 +9,5 @@ Sample automatic translation result (trained on 10,000 sentence pairs)
 
 Sample automatic translation result (trained on 50,000 sentence pairs)
 <p align="center">
-  <img src="docs/images/result__trainedOn50000.png" width="100%" title="DeepTranslation">
+  <img src="docs/images/result_trainedOn50000.png" width="100%" title="DeepTranslation">
 </p>
