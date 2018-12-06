@@ -52,6 +52,8 @@ class DeepLearner:
             target.append(word)
         return ' '.join(target)
 
+
+
     # evaluate the skill of the model
     def evaluate_model(self, model, tokenizer, sources, raw_dataset):
         actual, predicted = list(), list()

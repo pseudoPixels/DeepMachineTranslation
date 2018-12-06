@@ -47,7 +47,7 @@ raw_dataset = obj_fileIO.load_pickle_dump_dataset('../Datasets/deu-eng/english-g
 n_sentences = 7000
 
 
-L
+
 trainDataset, testDataset = obj_dataPrepUtils.train_test_split(raw_dataset[:n_sentences, :], 0.9)
 
 obj_fileIO.pickle_dump_data(trainDataset, '../Datasets/deu-eng/english-german-train.pkl')
