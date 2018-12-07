@@ -34,6 +34,8 @@ $ cd DeepTranslation
 $ pip install -r requirements.txt
 ```
 
+
+
 ## Download Trained Model
 Some pre-trained model can be downloaded from Google Drive using the following commands:
 ```
@@ -42,5 +44,15 @@ curl -L -o model_10000_Ger2Eng.h5  'https://drive.google.com/uc?export=download&
 curl -L -o model_50000_Ger2Eng.h5  'https://drive.google.com/uc?export=download&id=1ZAPwQRIP5M7v8k9hX4MroL_KOnfxsxk9'
 ```
 
-## Detail Explanation
+## ToDo
+- [x] Train on a larger dataset (50,000 sentence pairs) for German to Egnlish translation.
+- [ ] Train on Existing larger dataset (1,76,692 sentence pairs) for German to Egnlish translation.
+- [ ] Create a larger dataset for Bengali to English machine translation.
+- [ ] User TensorFlow.js with trained model in browser for fun.
+
+
+## Used Algorithm Explanation
 This project on Deep Learning based automatic machine translation was started for experimentations and learning Deep Neural Nets inspired from [Jason Brownlee's tutorial](https://machinelearningmastery.com/develop-neural-machine-translation-system-keras/). Refer to this great tutorial for details of the deep learning algorithms.
+
+
+
