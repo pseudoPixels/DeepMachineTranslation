@@ -33,3 +33,8 @@ $ git clone https://github.com/pseudoPixels/DeepTranslation.git
 $ cd DeepTranslation
 $ pip install -r requirements.txt
 ```
+
+## Download Trained Model
+```
+curl -L -o model_4400_Ben2Eng.h5  'https://drive.google.com/uc?export=download&id=1oGosApKUsxJKmrCYKOzegJz-pc1elVm7'
+```
