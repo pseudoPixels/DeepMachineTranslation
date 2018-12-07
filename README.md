@@ -46,7 +46,7 @@ curl -L -o model_50000_Ger2Eng.h5  'https://drive.google.com/uc?export=download&
 
 ## ToDo
 - [x] Train on a larger dataset (50,000 sentence pairs) for German to Egnlish translation.
-- [ ] Train on Existing larger dataset (1,76,692 sentence pairs) for German to Egnlish translation.
+- [ ] Train on existing larger dataset (1,76,692 sentence pairs) for German to Egnlish translation.
 - [ ] Create a larger dataset for Bengali to English machine translation (currently it is only 4400 sentence pairs).
 - [ ] User TensorFlow.js with trained model in browser for fun.
 
