@@ -35,6 +35,9 @@ $ pip install -r requirements.txt
 ```
 
 ## Download Trained Model
+Some pre-trained model can be downloaded from Google Drive using the following commands:
 ```
 curl -L -o model_4400_Ben2Eng.h5  'https://drive.google.com/uc?export=download&id=1oGosApKUsxJKmrCYKOzegJz-pc1elVm7'
+curl -L -o model_10000_Ger2Eng.h5  'https://drive.google.com/uc?export=download&id=16B6mClui1ANYsnmYtdaRWrU0JrSdwjr7'
+curl -L -o model_50000_Ger2Eng.h5  'https://drive.google.com/uc?export=download&id=1ZAPwQRIP5M7v8k9hX4MroL_KOnfxsxk9'
 ```
