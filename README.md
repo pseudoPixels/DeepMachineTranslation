@@ -54,5 +54,6 @@ curl -L -o model_50000_Ger2Eng.h5  'https://drive.google.com/uc?export=download&
 ## Used Algorithm Explanation
 This project on Deep Learning based automatic machine translation was started for experimentations and learning Deep Neural Nets inspired from [Jason Brownlee's tutorial](https://machinelearningmastery.com/develop-neural-machine-translation-system-keras/). Refer to this great tutorial for details of the deep learning algorithms.
 
-
+## Contributing
+:+1::tada: You are most welcome to contribute to this repo.  :tada::+1:
 
