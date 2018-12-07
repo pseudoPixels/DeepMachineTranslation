@@ -41,3 +41,6 @@ curl -L -o model_4400_Ben2Eng.h5  'https://drive.google.com/uc?export=download&i
 curl -L -o model_10000_Ger2Eng.h5  'https://drive.google.com/uc?export=download&id=16B6mClui1ANYsnmYtdaRWrU0JrSdwjr7'
 curl -L -o model_50000_Ger2Eng.h5  'https://drive.google.com/uc?export=download&id=1ZAPwQRIP5M7v8k9hX4MroL_KOnfxsxk9'
 ```
+
+## Detail Explanation
+This project on Deep Learning based automatic machine translation was started for experimentations and learning Deep Neural Nets inspired from [Jason Brownlee's tutorial](https://machinelearningmastery.com/develop-neural-machine-translation-system-keras/). Refer to this great tutorial for details of the deep learning algorithms.
