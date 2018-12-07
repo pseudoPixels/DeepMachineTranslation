@@ -11,7 +11,7 @@ DeepTranslation is a Deep Learning based project for automatic machine translati
 ## Example: German To English Translation
 Sample automatic translation result (trained on 10,000 sentence pairs):
 <p align="center">
-  <img src="docs/images/result__trainedOn10000.png" width="80%" title="DeepTranslation">
+  <img src="docs/images/result__trainedOn10000.png" width="100%" title="DeepTranslation">
 </p>
 
 
